@@ -1,1 +1,40 @@
-<p>quiz works!</p>
+<div class="quizContainer">
+  <h1>Quiz Time!</h1>
+  
+  <!-- Timer Display -->
+  <h3>Time Left: {{ getFormattedTime() }}</h3>
+
+  <!-- Loop through each question using *ngFor -->
+  <div class="question" *ngFor="let question of questions; let i = index">
+    <!-- Display question number and text -->
+    <h2>Question {{ i + 1 }}: {{ question.question }}</h2>
+
+    <!-- Clickable flag to mark questions -->
+    <span (click)="toggleFlag(i)" class="flagged" [ngClass]="{'flagged': flaggedQuestions[i]}">
+      <img src="bkmark.png" alt="flag">
+      <!-- <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 1V15M2 1H10.5L9 5H13L11 9H5L6 5H2V1Z" stroke="black"/>
+    </svg> -->
+    </span>
+
+    <!-- Display the options as radio buttons -->
+    <ul>
+      <li *ngFor="let option of question.options; let j = index">
+        <label>
+          <input type="radio" name="question{{ i }}"
+            (change)="onSelectedOptions(i,j)"
+            [disabled]="isSubmitted"/>
+          {{ option }}
+        </label>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Submit Button -->
+  <button class="submit" (click)="onSubmitQuiz()" [disabled]="isSubmitted">Submit</button>
+
+  <!-- Display Score after Submission -->
+  <div *ngIf="isSubmitted">
+    <h2>Your Score: {{ score }}/{{ questions.length }}</h2>
+  </div>
+</div>

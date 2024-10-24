@@ -1,0 +1,76 @@
+.quizContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 2px solid black; /* Matching border for consistency */
+    border-radius: 5px;
+    /* width: 80%; */
+    margin: 10px; /* Center horizontally */
+    background-color: #f4e9e9; /* Background for clarity */
+}
+
+.quizContainer h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* border: solid 2px black;
+    border-radius: 5px; */
+}
+
+.question {
+    text-align: left; /* Align questions to the left */
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    border: solid 2px black;
+    border-radius: 5px;
+    position: relative;
+}
+
+.question ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.question li {
+    margin: 5px 0;
+}
+
+label {
+    font-size: 1em;
+    font-family: 'Arial', sans-serif;
+}
+
+.submit{
+    width:50px;
+    height: 30px;
+    background-color:rgb(103, 155, 220);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.flagged {
+    position:static;
+    top: 10px; /* Adjust the distance from the top */
+    right: 10px; /* Adjust the distance from the right */
+    cursor: pointer; /* Optional, to show it's clickable */
+    fill: black;
+    transition: fill 0.3s ease, color 0.3s ease;
+
+
+
+  }
+
+  .flagged:hover {
+        fill: rgb(103, 155, 220); /* Change color on hover */
+    }
+  
+  .flagged svg {
+    fill: rgb(21, 20, 20); /* If you're using an SVG, fill color changes on click */
+  }
+  
+  
