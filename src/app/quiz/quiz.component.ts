@@ -18,6 +18,10 @@ export class QuizComponent {
   flaggedQuestions: boolean[] = [];
   timeLeft: number = 30 * 60;  // 30 minutes in seconds
   interval: any;
+  low = 0;
+  high = 22;
+  position:number | undefined;
+
 
   constructor(
     private quizService: QuizService,
@@ -78,6 +82,13 @@ export class QuizComponent {
   // Toggle flag for questions
   toggleFlag(questionIndex: number) {
     this.flaggedQuestions[questionIndex] = !this.flaggedQuestions[questionIndex];
+  }
+
+  calculatePosition(marks: number, low: number, high: number){
+    marks = this.score;
+  
+    return Math.floor((marks-low)/(high-low)*100); 
+
   }
 }
 

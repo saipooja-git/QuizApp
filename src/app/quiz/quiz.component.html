@@ -23,6 +23,7 @@
         <label>
           <input type="radio" name="question{{ i }}"
             (change)="onSelectedOptions(i,j)"
+            [checked]="selectedOptions[i] === j"
             [disabled]="isSubmitted"/>
           {{ option }}
         </label>
@@ -37,4 +38,11 @@
   <div *ngIf="isSubmitted">
     <h2>Your Score: {{ score }}/{{ questions.length }}</h2>
   </div>
+
+   <!-- Horizontal Progress Bar -->
+   <div class="progress-bar-container">
+    <div class="progress-bar" [style.width]="calculatePosition(score, low, high) + '%'"></div>
+  </div>
+
+  <p>Position on the scale: {{ calculatePosition(score, low, high) }}%</p>
 </div>
