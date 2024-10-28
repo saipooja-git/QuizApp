@@ -72,7 +72,7 @@ export class QuizService {
       {
         question:"What gas is used to extinguish fires?",
         options:["Oxygen","Carbon Dioxide","Nitrogen","Helium"],
-        correctAnswer:"Nitrozen"
+        correctAnswer:"Nitrogen"
       },
       {
         question:"What is the name of the process by which plants convert sunlight into energy?",
