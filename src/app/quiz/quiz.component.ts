@@ -75,6 +75,9 @@ export class QuizComponent {
         : null;
       if (selectedOption === question.correctAnswer) {
         this.score++;
+        question.userSelectedCorrectly = true;  // Track correct answer
+      } else {
+        question.userSelectedCorrectly = false;  // Track incorrect answer
       }
     });
   }

@@ -19,15 +19,20 @@
 
     <!-- Display the options as radio buttons -->
     <ul>
-      <li *ngFor="let option of question.options; let j = index">
-        <label>
-          <input type="radio" name="question{{ i }}"
-            (change)="onSelectedOptions(i,j)"
-            [checked]="selectedOptions[i] === j"
-            [disabled]="isSubmitted"/>
-          {{ option }}
-        </label>
-      </li>
+      <li *ngFor="let option of question.options; let j = index"
+      class="option"
+      [ngClass]="{
+        'correct-option': isSubmitted && selectedOptions[i] === j && question.userSelectedCorrectly,
+        'incorrect-option': isSubmitted && selectedOptions[i] === j && !question.userSelectedCorrectly
+      }">
+    <label>
+      <input type="radio" name="question{{ i }}"
+             (change)="onSelectedOptions(i,j)"
+             [checked]="selectedOptions[i] === j"
+             [disabled]="isSubmitted"/>
+      {{ option }}
+    </label>
+  </li>  
     </ul>
   </div>
 
